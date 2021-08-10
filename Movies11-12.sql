@@ -41,10 +41,8 @@ HAVING COUNT(*) >= 50;
 5.
 
 
-SELECT Movie.id, COUNT(*)
-FROM Movie
-INNER JOIN Oscar ON Oscar.movie_id = Movie.id
-WHERE Movie.id NOT IN Oscar;
+SELECT COUNT(id) FROM Movie
+WHERE Movie.id NOT IN ( SELECT movie_id FROM Oscar );
 
 
 6.

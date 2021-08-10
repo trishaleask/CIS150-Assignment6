@@ -3,7 +3,7 @@
 
 SELECT Movie.name, Movie.year
 FROM Movie
-INNER JOIN Actor ON Movie.id = Actor.actor_id
+INNER JOIN Actor ON Actor.movie_id = Movie.id
 INNER JOIN Person ON Person.id = Actor.actor_id
 WHERE Person.name = 'Geena Davis';
 

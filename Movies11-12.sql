@@ -47,12 +47,14 @@ WHERE Movie.id NOT IN ( SELECT movie_id FROM Oscar );
 
 6.
 
-SELECT Person.name, COUNT(movie.id)
-FROM Person
-LEFT OUTER JOIN Actor ON Actor.actor_id = Person.id
-LEFT OUTER JOIN Movie ON Movie.id = Actor.actor_id
-WHERE Person.dob = '%Sweden%';
 
+
+SELECT name, COUNT(Actor.actor_id)
+From Person
+LEFT OUTER JOIN Actor ON actor_id = Person.id
+WHERE Person.pob LIKE '%Sweden'
+GROUP BY Person.name
+ORDER BY COUNT(Person.name) DESC, Person.name ASC;
 
 
 
